@@ -1,3 +1,3 @@
-add_executable(Hello_world Hello_world.cpp)  
+add_executable(hello_world hello_world.cpp)  
 
-target_link_libraries(Hello_world PRIVATE formatter_ex)
+target_link_libraries(hello_world PUBLIC formatter_ex)
