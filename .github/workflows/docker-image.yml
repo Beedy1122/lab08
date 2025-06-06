@@ -23,8 +23,7 @@ jobs:
       run: sudo docker build -t logger .
     
     - name: Run container
-      run: |
-        sudo docker run --name HWCON logger
+      run: sudo docker run --name HWCON logger 
         
     - name: doker cp
       run: sudo docker cp HWCON:app/build/hello_world_application/hello_world .
@@ -32,7 +31,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: dep artifact
+        name: dep_artifact
         path: ${{ github.workspace }}/hello_world
           
     - name: Create Release
