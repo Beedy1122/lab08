@@ -12,4 +12,4 @@ RUN cmake --build build --config Release
 RUN cd build/hello_world_application && ls
 RUN ls
 
-CMD ["./build/hello_world_application/main"]
+ENTRYPOINT ["./build/hello_world_application/hello_world"]
