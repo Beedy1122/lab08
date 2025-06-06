@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Lab08)
+project(Task2)
 
 set(CPACK_PACKAGE_NAME "lab08")
 set(CPACK_PACKAGE_VERSION "1.0.0")
