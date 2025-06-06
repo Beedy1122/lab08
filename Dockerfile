@@ -1,23 +1,15 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 
-RUN apt update
-RUN apt install -yy gcc g++ cmake
+RUN apt-get update
+RUN apt-get install -y build-essential cmake
 
-COPY . print/
-WORKDIR print
+COPY . app/
+WORKDIR app
 
+RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
+RUN cmake --build build --config Release
 
+RUN cd build/hello_world_application && ls
+RUN ls
 
-RUN cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=_install
-RUN cmake --build _build
-RUN cmake --build _build --target install
-RUN mkdir -p /home/logs
-ENV LOG_PATH /home/logs/log.txt
-
-VOLUME /lab08/logs
-
-
-WORKDIR _install/bin
-
-
-ENTRYPOINT ./Hello_world && ./Hello_world >> /lab08/logs/log.txt 2>&1
+CMD ["./build/hello_world_application/main"]
