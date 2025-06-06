@@ -6,8 +6,7 @@ RUN apt-get install -y build-essential cmake
 COPY . app/
 WORKDIR app
 
-RUN cmake -B build -DCMAKE_BUILD_TYPE=Release|| \
-    (echo "CMake configuration failed"; ls -la; exit 1)
+RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
 RUN cmake --build build --config Release
 
 RUN cd build/hello_world_application && ls
